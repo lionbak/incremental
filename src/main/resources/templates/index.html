@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jinwoo's Portfolio</title>
+    <!--Main CSS-->
+    <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+</head>
+<body class="dark-background">
+    <main>
+        <div id="logo-btn" class="main-logo">
+            Jinwoo Bak
+        </div>
+        <div class="main-menu">
+            <div class="main-menu-bar">
+                <p>portFolio</p>
+            </div>
+            <div class="main-menu-bar">
+                <p>aboutMe</p>
+            </div>
+        </div>
+
+        <div class="main-text">
+
+        </div>
+
+        <div class="image-container">
+            <div class="image-box">
+                <img th:src="@{assets/img/logo2.png}" alt="Image1">
+            </div>
+            <div class="image-box">
+                <img th:src="@{assets/img/logo1.png}" alt="Image2">
+            </div>
+            <div class="image-box">
+                <img th:src="@{assets/img/logo3.png}" alt="Image3">
+            </div>
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <div class="popup-position">
+                    <div class="popup-top">
+                        <div id="code-btn" class="code-button">
+                            💻코드설명
+                        </div>
+                        <div id="code-btn2" class="code-button">
+                            💻FlowChart
+                        </div>
+                    </div>
+                </div>
+
+                        <span id="close" class="close">&times;</span>
+                        <iframe id="popup-doggi" class="iframe" th:src="@{http://localhost:8081/doggimain/index.jsp}"></iframe>
+                </div>
+
+                <div id="code-popup" class="popup">
+                    <div class="code-popup-content">
+                        <span id="code-close" class="close">&times;</span>
+                        <h2>코드 설명</h2>
+                        <p>여기에 프로젝트의 핵심 코드 설명과 기술 스택을 입력.</p>
+                        <pre>
+                            &lt;div class="image-box"&gt;
+                                &lt;img src="..." alt="..."&gt;
+                            &lt;/div&gt;
+                        </pre>
+                    </div>
+                </div>
+
+        </div>
+    </main>
+<script type="text/javascript" th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>
