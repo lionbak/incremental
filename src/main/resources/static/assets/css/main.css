@@ -1,8 +1,10 @@
 
 .dark-background {
-    --background-color: #1c1c1c;
-    --default-color: #ffffff;
+    --background-color: #ffffff;
+    --default-color: #000000;
 }
+
+/* 메인 CSS */
 .main-menu {
     display: flex;
     height: 13vh;
@@ -28,7 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 12vh;
     font-size: 24px;
 }
 
@@ -59,55 +61,96 @@
     transform: rotate(360deg);
 }
 
+/* 이미지 박스 */
 .image-container {
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: center;
+    width: 100%;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .image-box {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     padding: 30px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 25% 10%;
+    border-radius: 10%;
     display: flex;
-    margin: 20px;
-    position: relative;
-    background: linear-gradient(10deg, #000, #373737);
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
 .image-box img {
-    width: 100%;
+    width: 110%;
     height: auto;
-    border-radius: 8px;
+
     object-fit: contain;
 }
 
-.image-box:before, .image-box:after {
-    content: '';
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    background: linear-gradient(45deg, #6e6e6e, #606060, #353535, #474747, #707070, #100f0f);
-    background-size: 400%;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    border-radius: 25% 10%;
-    z-index: -1;
-    animation: steam 20s linear infinite;
-}
-
-.image-box:after {
-    filter: blur(50px);
-}
 .image-box:hover img {
     transform: scale(1.1);
 }
 
+.image-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 25px; /* 아이템 간의 간격 */
+    max-width: 1300px; /* 원하는 최대 너비 */
+}
+
+.image-container li {
+    flex: 0 0 calc(25% - 30px); /* 3개씩 정렬 */
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+}
+
+.item-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.item-description {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #666;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tech-icon {
+    width: auto;
+    min-width: 40px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 20%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 @keyframes steam {
     0% {
         background-position: 0 0;
@@ -119,6 +162,8 @@
         background-position: 0 0;
     }
 }
+
+/* 팝업창 */
 .popup {
     display: none;
     position: fixed;
@@ -157,6 +202,7 @@
     width: 75%;
     max-width: 6000px;
     background-color: white;
+    color : black;
     padding: 20px;
     border-radius: 10px;
 }
@@ -184,6 +230,20 @@
     border-radius: 10px;
 }
 
+/* 코드 팝업 페이지 */
+.code-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
 .code-button {
     display: inline-block;
     padding: 5px 10px; /* 버튼 내부 여백 */
@@ -203,22 +263,42 @@
 .code-button2:hover {
     background-color: #e68900;
 }
+
 .code-popup-content {
     position: relative;
-    height: auto;
-    width: 60%;
-    max-width: 800px;
-    background-color: #f5f5f5;
+    top: 25px;
+    height: 85%;
+    width: 75%;
+    max-width: 6000px;
+    background-color: white;
+    color : black;
     padding: 20px;
     border-radius: 10px;
-    color: #333;
     overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.code-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
 }
 
 .popup .code-popup-content {
     background-color: #fff; /* 코드 팝업 전용 배경색 */
 }
+
+.code-popup-content img {
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    float: left;
+}
+
 body, html {
     height: 100%;
     margin: 0;
